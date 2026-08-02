@@ -1,4 +1,5 @@
 -- Small boost to all non-combat XP based on Science level (2% per level)
+-- TODO: make the bonusXP multiplied to counter the game base xp boost
 require 'ZSS_Fix_Events'
 
 if isClient() then return end
