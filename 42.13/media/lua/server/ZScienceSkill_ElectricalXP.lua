@@ -11,9 +11,8 @@ local scienceXPMultiplier = 0.5 -- 0.5 = 50% ElectricalXP to ScienceXP
 -- This function is called 2 times when gaining ElectricalXP: ElectricalXP = 100 / scienceXP = 50. XPBoost ElectricalXP = 20 / ScienceXP = 10 || That's expected?
 local function onAddXP(character, perk, amount)
     if perk == Perks.Electricity and amount >= ZScienceSkill.minGain then
-        print("Electrical EXP: " .. amount)
         local scienceXP = amount * scienceXPMultiplier
-        print("Science EXP Bonus: " .. scienceXP)
+
         if scienceXP >= ZScienceSkill.minGain then
             addXpNoMultiplier(character, Perks.Science, scienceXP)
         end

@@ -42,16 +42,12 @@ end
 local combatPerkCache = {}
 
 function ZScienceSkill.isCombatPerk(perk)
-    print("Combat Function")
-    print("Perk: " .. perk:getName())
     if combatPerkCache[perk] ~= nil then
-        print("Cached Perk: " .. perk:getName() .. "|" .. tostring(combatPerkCache[perk]))
         return combatPerkCache[perk]
     end
 
     local perkObj = PerkFactory.getPerk(perk)
     if not perkObj then
-        print("perkObj false: " .. perkObj:getName())
         combatPerkCache[perk] = false
         return false
     end
@@ -61,8 +57,6 @@ function ZScienceSkill.isCombatPerk(perk)
         or perk == Perks.Combat or perk == Perks.Firearm)
 
     combatPerkCache[perk] = isCombatPerk
-
-    print("Is Combat: " .. tostring(isCombatPerk))
 
     return isCombatPerk
 end

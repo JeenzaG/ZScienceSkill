@@ -23,7 +23,7 @@ local function onAddXP(character, perk, amount)
 
     pcall(function()
         local bonusXP = amount * (scienceLevel * multiplier)
-        print("Bonus XP: " .. bonusXP)
+
 
         if bonusXP >= ZScienceSkill.minGain then
             addXpNoMultiplier(character, perk, bonusXP)
