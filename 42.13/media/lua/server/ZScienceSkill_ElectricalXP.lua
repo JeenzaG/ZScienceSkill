@@ -1,7 +1,5 @@
 -- Grant Science XP when gaining Electrical XP
--- TODO Make the exp granted to science multiplied to couter the base xp boost from the game
--- Why this mod don't add the bonusXP as bonus boost? We can incremente the base boost of the game by the science level and the multipliers
--- So the addXp is not needed
+
 require 'ZSS_Fix_Events'
 
 if isClient() then return end
@@ -17,7 +15,7 @@ local function onAddXP(character, perk, amount)
         local scienceXP = amount * scienceXPMultiplier
         print("Science EXP Bonus: " .. scienceXP)
         if scienceXP >= ZScienceSkill.minGain then
-            addXp(character, Perks.Science, scienceXP)
+            addXpNoMultiplier(character, Perks.Science, scienceXP)
         end
     end
 end

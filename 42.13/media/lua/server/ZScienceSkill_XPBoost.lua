@@ -1,5 +1,4 @@
 -- Small boost to all non-combat XP based on Science level (2% per level)
--- TODO: make the bonusXP multiplied to counter the game base xp boost
 require 'ZSS_Fix_Events'
 
 if isClient() then return end
@@ -24,9 +23,10 @@ local function onAddXP(character, perk, amount)
 
     pcall(function()
         local bonusXP = amount * (scienceLevel * multiplier)
+        print("Bonus XP: " .. bonusXP)
 
         if bonusXP >= ZScienceSkill.minGain then
-            addXp(character, perk, bonusXP)
+            addXpNoMultiplier(character, perk, bonusXP)
         end
     end)
 
